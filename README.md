@@ -76,15 +76,15 @@ Executables
 ├─ Execute SQL Task - Validate Export Location  
 ├─ Execute SQL Task - Get Export Data  
 └─ Foreach Loop Container - Read Source File F862  
-   ├─ Execute SQL Task - Get Plant Code  
-   └─ Foreach Loop Container - Export File  
-      ├─ Execute SQL Task - BEGIN TRANSACTION  
-      ├─ Data Flow Task - Export File  
-      │  ├─ OLE DB Source  
-      │  ├─ Data Conversion  
-      │  └─ Flat File Destination  
-      ├─ Execute SQL Task - Update Exported File Names  
-      └─ Execute SQL Task - COMMIT TRANSACTION  
+      ├─ Execute SQL Task - Get Plant Code  
+      └─ Foreach Loop Container - Export File  
+            ├─ Execute SQL Task - BEGIN TRANSACTION  
+            ├─ Data Flow Task - Export File  
+                  │  ├─ OLE DB Source  
+                  │  ├─ Data Conversion  
+                  │  └─ Flat File Destination  
+            ├─ Execute SQL Task - Update Exported File Names  
+            └─ Execute SQL Task - COMMIT TRANSACTION  
 
 Event Handlers (OnError)  
 └─ Executables  
