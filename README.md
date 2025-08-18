@@ -109,6 +109,11 @@ These parameters are required for proper configuration of file processing and da
 ---
 ## UET User Fields
 
+| User Field Name | User Data Type | Data Type | Precision | Decimals | Initial Value | Description |
+|-----------------|----------------|----------|-----------|----------|---------------|------------|
+| Uf_FCType       |                | tinyint  |           | 1        |               |            |
+| Uf_FileName     |                | nvarchar | 3800      |          |               |            |
+
 ---
 ## 🔌 Connections
 
