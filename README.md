@@ -1,7 +1,7 @@
 # FMT - ETL Automation Workflow
 [![Microsoft SQL Server](https://img.shields.io/badge/Microsoft-SQL%20Server-blue)](https://learn.microsoft.com/en-us/sql/sql-server/)
 [![SQL Integration Service](https://img.shields.io/badge/SSIS-Integration%20Service-orange)](https://learn.microsoft.com/en-us/sql/integration-services/)
-[![Microsoft Excel](https://img.shields.io/badge/Microsoft-Excel-green)](https://www.microsoft.com/en-us/microsoft-365/excel)
+[![XLSX](https://img.shields.io/badge/File-XLSX-green)](https://en.wikipedia.org/wiki/Microsoft_Excel#File_formats)
 [![CSV](https://img.shields.io/badge/File-CSV-yellow)](https://en.wikipedia.org/wiki/Comma-separated_values)
 [![OLE DB](https://img.shields.io/badge/Database-OLEDB-red)](https://learn.microsoft.com/en-us/sql/ado/guide/data/oledb-provider-for-sql-server)
 [![ADO.NET](https://img.shields.io/badge/.NET-ADO.NET-blueviolet)](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/)
