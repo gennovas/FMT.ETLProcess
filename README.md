@@ -94,6 +94,18 @@ These parameters are required for proper configuration of file processing and da
 | MB3Z17A955K  | SP08-04-N  |
 | MB3Z6G079G   | SP08-05-N  |
 
+**PlantCodeMap**
+- **Value** = CustLoc column in FS01, FS02  
+- **Description** = Plant code
+
+**Example**
+
+| Value    | Description |
+|----------|------------|
+| PL155D   | A155D      |
+| PLF30A   | AF30A      |
+| PLF31A   | AF31A      |
+
 ---
 ## 🔌 Connections
 
