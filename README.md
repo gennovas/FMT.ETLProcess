@@ -44,8 +44,7 @@ These parameters are required for proper configuration of file processing and da
 
 **1. ExportPlant**
 - **Value** = ShipToCode column in (F830, F862), CustLoc column in (FS01, FS02)  
-- **Description** = Weekday name
-- 
+- **Description** = Weekday name  
 | Value   | Description |
 |---------|------------|
 | GBJWA   | Thursday   |
