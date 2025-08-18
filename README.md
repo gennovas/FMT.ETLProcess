@@ -70,6 +70,30 @@ These parameters are required for proper configuration of file processing and da
 | PathFrom      | C:\ETL\FordOrder\       |
 | PathTo        | C:\ETL\FordImported\    |
 
+**ProductMap**
+- **Value** = Product column in FS01, FS02  
+- **Description** = SyteLine item code
+
+**Example**
+
+| Value        | Description |
+|--------------|------------|
+| GN1Z5035E    | SP06-04-N  |
+| GN1Z5500A    | SP06-05-N  |
+| GN1Z5500C    | SP06-06-N  |
+| GN1Z5500D    | SP06-07-N  |
+| GN1Z5500E    | SP06-08-N  |
+| GN1Z5500F    | SP06-09-N  |
+| GN1Z5A757A   | SP06-10-N  |
+| GN1Z5A758A   | SP06-11-N  |
+| JB3Z17A954B  | SP07-02-N  |
+| JB3Z17A954C  | SP07-04-N  |
+| MB3Z17A954L  | SP07-05-N  |
+| MB3Z17A954M  | SP07-06-N  |
+| MB3Z17A955J  | SP07-07-N  |
+| MB3Z17A955K  | SP08-04-N  |
+| MB3Z6G079G   | SP08-05-N  |
+
 ---
 ## 🔌 Connections
 
