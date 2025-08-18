@@ -77,22 +77,22 @@ Executables
 ├─ Execute SQL Task - Validate Export Location  
 ├─ Execute SQL Task - Get Export Data  
 └─ Foreach Loop Container - Read Source File F862  
-      ├─ Execute SQL Task - Get Plant Code  
-      └─ Foreach Loop Container - Export File  
-            ├─ Execute SQL Task - BEGIN TRANSACTION  
-            ├─ Data Flow Task - Export File  
-                  │  ├─ OLE DB Source  
-                  │  ├─ Data Conversion  
-                  │  └─ Flat File Destination  
-            ├─ Execute SQL Task - Update Exported File Names  
-            └─ Execute SQL Task - COMMIT TRANSACTION  
+   ├─ Execute SQL Task - Get Plant Code  
+   └─ Foreach Loop Container - Export File  
+      ├─ Execute SQL Task - BEGIN TRANSACTION  
+      ├─ Data Flow Task - Export File  
+      │  ├─ OLE DB Source  
+      │  ├─ Data Conversion  
+      │  └─ Flat File Destination  
+      ├─ Execute SQL Task - Update Exported File Names  
+      └─ Execute SQL Task - COMMIT TRANSACTION  
 Event Handlers (OnError)  
 └─ Executables  
    ├─ Execute SQL Task - Logging Exception Message  
    └─ Execute SQL Task - ROLLBACK TRANSACTION  
-```
-    
+```  
 **ImportF830-Csv.dtsx**  
+```  
 Executables  
 ├─ Execute SQL Task - Get Source File Location  
 ├─ Execute SQL Task - Validate Source File Location  
@@ -111,15 +111,15 @@ Executables
    ├─ Execute SQL Task - Create Forecast  
    ├─ Execute SQL Task - Update File Status  
    ├─ File System Task - Move File To Imported Folder  
-   └─ Execute SQL Task - COMMIT TRANSACTION  
-  
+   └─ Execute SQL Task - COMMIT TRANSACTION   
 Event Handlers (OnError)  
 └─ Executables  
    ├─ Execute SQL Task - ROLLBACK TRANSACTION  
    ├─ Execute SQL Task - Logging Exception Message  
-   └─ File System Task - Move File To Exception Folder  
-  
+   └─ File System Task - Move File To Exception Folder
+```  
 **ImportF862-Csv.dtsx**  
+```  
 Executables  
 ├─ Execute SQL Task - Get Source File Location  
 ├─ Execute SQL Task - Validate Source File Location  
@@ -140,14 +140,14 @@ Executables
    ├─ Execute SQL Task - Update File Status  
    ├─ File System Task - Move File To Imported Folder  
    └─ Execute SQL Task - COMMIT TRANSACTION  
-  
 Event Handlers (OnError)  
 └─ Executables  
    ├─ Execute SQL Task - ROLLBACK TRANSACTION  
    ├─ Execute SQL Task - Logging Exception Message  
    └─ File System Task - Move File To Exception Folder  
-  
+```  
 **ImportFS01-Xlsx.dtsx**  
+```  
 Executables  
 ├─ Execute SQL Task - Get Source File Location  
 ├─ Execute SQL Task - Validate Source File Location  
@@ -173,8 +173,9 @@ Event Handlers (OnError)
    ├─ Execute SQL Task - ROLLBACK TRANSACTION  
    ├─ Execute SQL Task - Logging Exception Message  
    └─ File System Task - Move File To Exception Folder  
-  
+```  
 **ImportFS02-Xlsx.dtsx**  
+``` 
 Executables  
 ├─ Execute SQL Task - Get Source File Location  
 ├─ Execute SQL Task - Validate Source File Location  
@@ -197,8 +198,8 @@ Event Handlers (OnError)
 └─ Executables  
    ├─ Execute SQL Task - ROLLBACK TRANSACTION  
    ├─ Execute SQL Task - Logging Exception Message  
-   └─ File System Task - Move File To Exception Folder  
-  
+   └─ File System Task - Move File To Exception Folder
+``` 
 ---
 
 ✨ **Author:** ETL Automation Team 🚀
