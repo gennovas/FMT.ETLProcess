@@ -11,14 +11,14 @@ These parameters are required for proper configuration of file processing and da
 
 | **Name**            | **DataType** | **Value**                       | **Sensitive**     | **Required**| **Description**
 |---------------------|--------------|---------------------------------|-------------------|-------------|----------------------------------------------------
-| **ApplicationName** | `String`     | `FMT - ETL Automation Workflow` | 🟢 Not Sensitive | 🔴 Required | 🏷️ Application / Workflow name                    
-| **FileSpec830**     | `String`     | `830*.csv`                      | 🟢 Not Sensitive | 🔴 Required | 📂 File specification for **830** CSV files 
-| **FileSpec862**     | `String`     | `862*.csv`                      | 🟢 Not Sensitive | 🔴 Required | 📂 File specification for **862** CSV files 
-| **FileSpecFS01**    | `String`     | `export??????????????.xlsx`     | 🟢 Not Sensitive | 🔴 Required | 📊 File specification for **FS01** Excel exports 
-| **FileSpecFS02**    | `String`     | `export??????????????*.xlsx`    | 🟢 Not Sensitive | 🔴 Required | 📊 File specification for **FS02** Excel exports 
-| **SLSite**          | `String`     | `FMT`                           | 🟢 Not Sensitive | 🔴 Required | 🏭 Site code for processing 
-| **SQLDatabaseName** | `String`     | `FMT_PRD_App`                   | 🟢 Not Sensitive | 🔴 Required | 🗄️ Target SQL Database name 
-| **SQLServerName**   | `String`     | `FMT-SQLDB`                     | 🟢 Not Sensitive | 🔴 Required | 🖥️ Target SQL Server instance name 
+| **ApplicationName** | `String`     | `FMT - ETL Automation Workflow` | False             | True        | 🏷️ Application / Workflow name                    
+| **FileSpec830**     | `String`     | `830*.csv`                      | False             | True        | 📂 File specification for **830** CSV files 
+| **FileSpec862**     | `String`     | `862*.csv`                      | False             | True        | 📂 File specification for **862** CSV files 
+| **FileSpecFS01**    | `String`     | `export??????????????.xlsx`     | False             | True        | 📊 File specification for **FS01** Excel exports 
+| **FileSpecFS02**    | `String`     | `export??????????????*.xlsx`    | False             | True        | 📊 File specification for **FS02** Excel exports 
+| **SLSite**          | `String`     | `FMT`                           | False             | True        | 🏭 Site code for processing 
+| **SQLDatabaseName** | `String`     | `FMT_PRD_App`                   | False             | True        | 🗄️ Target SQL Database name 
+| **SQLServerName**   | `String`     | `FMT-SQLDB`                     | False             | True        | 🖥️ Target SQL Server instance name 
 
 ---
 
