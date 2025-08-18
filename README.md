@@ -40,7 +40,22 @@ These parameters are required for proper configuration of file processing and da
 - **📑 FS02:** `export??????????????*.xlsx`  
 
 ---
+## User Defined Type
 
+**1. ExportPlant**
+- **Value** = ShipToCode column in (F830, F862), CustLoc column in (FS01, FS02)  
+- **Description** = Weekday name
+
+| Value   | Description |
+|---------|------------|
+| GBJWA   | Thursday   |
+| GBJWC   | Wednesday  |
+| GK0VH   | Tuesday    |
+| PL155D  | Monday     |
+| PLF30A  | Friday     |
+| PLF31A  | Saturday   |
+
+--
 ## 🔌 Connections
 
 ### 🔷 OLE DB Connections
