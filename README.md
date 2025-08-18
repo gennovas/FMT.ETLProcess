@@ -8,6 +8,7 @@
 [![Flat File](https://img.shields.io/badge/File-FlatFile-lightgrey)](https://en.wikipedia.org/wiki/Flat_file_database)
 [![UTF-8](https://img.shields.io/badge/Encoding-UTF--8-brightgreen)](https://en.wikipedia.org/wiki/UTF-8)
 [![Unicode](https://img.shields.io/badge/Encoding-Unicode-blue)](https://en.wikipedia.org/wiki/Unicode)
+[![Infor CloudSuite Industrial](https://img.shields.io/badge/Infor-CloudSuite%20Industrial-orange)](https://www.infor.com/solutions/cloudsuite-industrial)
 
 # 📌 Project Parameters
 
