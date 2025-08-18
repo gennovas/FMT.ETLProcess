@@ -1,4 +1,13 @@
 # FMT.ETLProcess
+[![Microsoft SQL Server](https://img.shields.io/badge/Microsoft-SQL%20Server-blue)](https://learn.microsoft.com/en-us/sql/sql-server/)
+[![SQL Integration Service](https://img.shields.io/badge/SSIS-Integration%20Service-orange)](https://learn.microsoft.com/en-us/sql/integration-services/)
+[![Microsoft Excel](https://img.shields.io/badge/Microsoft-Excel-green)](https://www.microsoft.com/en-us/microsoft-365/excel)
+[![CSV](https://img.shields.io/badge/File-CSV-yellow)](https://en.wikipedia.org/wiki/Comma-separated_values)
+[![OLE DB](https://img.shields.io/badge/Database-OLEDB-red)](https://learn.microsoft.com/en-us/sql/ado/guide/data/oledb-provider-for-sql-server)
+[![ADO.NET](https://img.shields.io/badge/.NET-ADO.NET-blueviolet)](https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/)
+[![Flat File](https://img.shields.io/badge/File-FlatFile-lightgrey)](https://en.wikipedia.org/wiki/Flat_file_database)
+[![UTF-8](https://img.shields.io/badge/Encoding-UTF--8-brightgreen)](https://en.wikipedia.org/wiki/UTF-8)
+[![Unicode](https://img.shields.io/badge/Encoding-Unicode-blue)](https://en.wikipedia.org/wiki/Unicode)
 
 # 📌 Project Parameters — FMT ETL Automation Workflow
 
