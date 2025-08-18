@@ -43,9 +43,7 @@ These parameters are required for proper configuration of file processing and da
 ## 🔌 Connections
 
 ### 🔷 OLE DB Connections
-- **Microsoft.ACE.OLEDB.12.0** → Extended Properties:  
-  `"Excel 12.0 Xml;HDR=NO;IMEX=1;"` _(Excel Connection)_  
-  [Download Microsoft Access Database Engine 2016 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=54920)
+- **Microsoft.ACE.OLEDB.12.0** → Extended Properties:`"Excel 12.0 Xml;HDR=NO;IMEX=1;"` _(Excel Connection)_ [Download Microsoft Access Database Engine 2016 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=54920)
 - **SQL Native Client 11.0**
 
 ### 🔷 ADO.NET Connections
