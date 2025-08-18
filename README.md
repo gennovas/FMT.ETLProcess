@@ -120,6 +120,13 @@ These parameters are required for proper configuration of file processing and da
 |----------------|-------|------------|
 | Uc_Forecast    |       |            |
 
+## UET Class/Field Relationships
+
+| Class Name    | Field Name  |
+|---------------|------------|
+| Uc_Forecast   | Uf_FCType  |
+| Uc_Forecast   | Uf_FileName|
+
 
 ---
 ## 🔌 Connections
