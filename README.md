@@ -60,7 +60,7 @@ These parameters are required for proper configuration of file processing and da
 
 ---
 
-## 🗄️ Database Connection
+## 🗄️ SQL Server Database Connection
 
 - **🖥️ Server:** `FMT-SQLDB`  
 - **🗄️ Database:** `FMT_PRD_App`  
