@@ -42,7 +42,7 @@ These parameters are required for proper configuration of file processing and da
 ---
 ## User Defined Type
 
-**1. ExportPlant**
+**ExportPlant**
 - **Value** = ShipToCode column in (F830, F862), CustLoc column in (FS01, FS02)  
 - **Description** = Weekday name
   
@@ -56,6 +56,19 @@ These parameters are required for proper configuration of file processing and da
 | PL155D  | Monday     |
 | PLF30A  | Friday     |
 | PLF31A  | Saturday   |
+
+**FordImportPath**
+- **Value** = Path name  
+- **Description** = Directory
+
+**Example**
+
+| Value         | Description           |
+|---------------|---------------------|
+| PathException | C:\ETL\ImportException\ |
+| PathExportF862| C:\ETL\ExportF862\      |
+| PathFrom      | C:\ETL\FordOrder\       |
+| PathTo        | C:\ETL\FordImported\    |
 
 ---
 ## 🔌 Connections
