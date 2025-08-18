@@ -86,13 +86,12 @@ Executables
                   │  └─ Flat File Destination  
             ├─ Execute SQL Task - Update Exported File Names  
             └─ Execute SQL Task - COMMIT TRANSACTION  
-```
-
 Event Handlers (OnError)  
 └─ Executables  
    ├─ Execute SQL Task - Logging Exception Message  
    └─ Execute SQL Task - ROLLBACK TRANSACTION  
-  
+```
+    
 **ImportF830-Csv.dtsx**  
 Executables  
 ├─ Execute SQL Task - Get Source File Location  
