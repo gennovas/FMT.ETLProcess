@@ -127,6 +127,11 @@ These parameters are required for proper configuration of file processing and da
 | Uc_Forecast   | Uf_FCType  |
 | Uc_Forecast   | Uf_FileName|
 
+## UET Table/Class Relationships
+
+| Table Name      | Class Name   | Active | Extend All Records | Rule |
+|-----------------|-------------|--------|------------------|------|
+| forecast_mst    | Uc_Forecast | 1      | 0                |      |
 
 ---
 ## 🔌 Connections
