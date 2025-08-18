@@ -114,6 +114,13 @@ These parameters are required for proper configuration of file processing and da
 | Uf_FCType       |                | tinyint  |           |          |  1            |            |
 | Uf_FileName     |                | nvarchar | 3800      |          |               |            |
 
+## UET Classes
+
+| Class Name     | Label | Description |
+|----------------|-------|------------|
+| Uc_Forecast    |       |            |
+
+
 ---
 ## 🔌 Connections
 
