@@ -167,7 +167,6 @@ Executables
    ├─ Execute SQL Task - Update File Status  
    ├─ File System Task - Move File To Imported Folder  
    └─ Execute SQL Task - COMMIT TRANSACTION  
-  
 Event Handlers (OnError)  
 └─ Executables  
    ├─ Execute SQL Task - ROLLBACK TRANSACTION  
@@ -193,7 +192,6 @@ Executables
    ├─ Execute SQL Task - Update File Status  
    ├─ File System Task - Move File To Imported Folder  
    └─ Execute SQL Task - COMMIT TRANSACTION  
-  
 Event Handlers (OnError)  
 └─ Executables  
    ├─ Execute SQL Task - ROLLBACK TRANSACTION  
