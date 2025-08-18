@@ -1,4 +1,4 @@
-# FMT.ETLProcess
+# FMT - ETL Automation Workflow
 [![Microsoft SQL Server](https://img.shields.io/badge/Microsoft-SQL%20Server-blue)](https://learn.microsoft.com/en-us/sql/sql-server/)
 [![SQL Integration Service](https://img.shields.io/badge/SSIS-Integration%20Service-orange)](https://learn.microsoft.com/en-us/sql/integration-services/)
 [![Microsoft Excel](https://img.shields.io/badge/Microsoft-Excel-green)](https://www.microsoft.com/en-us/microsoft-365/excel)
@@ -9,7 +9,7 @@
 [![UTF-8](https://img.shields.io/badge/Encoding-UTF--8-brightgreen)](https://en.wikipedia.org/wiki/UTF-8)
 [![Unicode](https://img.shields.io/badge/Encoding-Unicode-blue)](https://en.wikipedia.org/wiki/Unicode)
 
-# 📌 Project Parameters — FMT ETL Automation Workflow
+# 📌 Project Parameters
 
 This document provides an overview of the project parameters used in the **FMT - ETL Automation Workflow**.  
 These parameters are required for proper configuration of file processing and database connections.
