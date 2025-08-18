@@ -198,6 +198,3 @@ Event Handlers (OnError)
    ├─ Execute SQL Task - Logging Exception Message  
    └─ File System Task - Move File To Exception Folder
 ``` 
----
-
-✨ **Author:** ETL Automation Team 🚀
