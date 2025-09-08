@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MSSQLConnection"
+  DTS:DTSID="{846AC098-D35F-4ACC-925C-38EBCBEEEF09}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"Data Source=" + @[$Project::SQLServerName] + ";Initial Catalog=" + @[$Project::SQLDatabaseName]  + ";Integrated Security=True;Application Name=" + @[$Project::ApplicationName] +";"</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::SQLDatabaseName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::SQLServerName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Retain="True"
+      DTS:ConnectionString="Data Source=TTC-SQLDB;Initial Catalog=TTC_LIVE_App;Integrated Security=True;Application Name=FMT - ETL Automation Workflow;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

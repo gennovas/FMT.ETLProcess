@@ -1,0 +1,3077 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/9/2025 10:54:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-06GRA2V"
+  DTS:CreatorName="DESKTOP-06GRA2V\Sarit Tunthong"
+  DTS:DTSID="{82053B1A-493E-4A64-89C1-4067F8E9D136}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ImportF862-Csv"
+  DTS:PackageType="5"
+  DTS:VersionBuild="122"
+  DTS:VersionGUID="{8E78D279-DC1A-45B5-9967-6FD4052537AA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ExceptionSQLConnection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D4901C8D-39D0-49F3-9D8B-908FB5B15E11}"
+      DTS:ObjectName="ExceptionSQLConnection">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Data Source=" + @[$Project::SQLServerName]  +
+";Initial Catalog=" + @[$Project::SQLDatabaseName]  +
+";Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" +
+ "Application Name=" +  @[$Project::ApplicationName]+ ";"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Project::SQLDatabaseName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::SQLServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=TTC-SQLDB;Initial Catalog=TTC_LIVE_App;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=FMT - ETL Automation Workflow;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D5188B33-BB86-4FB1-B7C2-CFCC0877B14D}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::CurrentFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:DataRowsToSkip="2"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\ETL\FordOrder\0000000000000000000000000000000000000000000000.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ctrl_Num"
+              DTS:DTSID="{7EA8F33C-CD8B-46F6-87CA-0184EF0D9C9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Msg_Num"
+              DTS:DTSID="{E81AF099-4AAE-4350-B268-947FAC357CED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Msg_RealseDate"
+              DTS:DTSID="{4AA8088D-92FC-4A7F-B531-F791D4F43E31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Msg_Purpose"
+              DTS:DTSID="{9ED91A2D-F402-42F6-8ADD-095CF91B88E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ScheduleType"
+              DTS:DTSID="{18C205BB-BCFA-4353-AF0A-4986B69F5076}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{DD73F360-0F2F-4250-AF4F-729EA6B7A203}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EndDate"
+              DTS:DTSID="{7C26AB15-159E-4326-B1B9-B343FB2ABAC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Msg_Ref_Num"
+              DTS:DTSID="{07D8FD35-104D-4C65-A080-E28A8B1AC356}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ShipToCode"
+              DTS:DTSID="{E5D0CB00-A7DE-4BE7-A381-C902D8C31712}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ShipFromCode"
+              DTS:DTSID="{EC525661-4338-43B0-A8D6-BE88634C2001}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Consignee"
+              DTS:DTSID="{E567FB64-D4E4-49EF-B4B5-563A3797D778}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PartNum"
+              DTS:DTSID="{7C8F1E2A-97BE-409B-9BD6-670F78CAA91C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PO_Num"
+              DTS:DTSID="{FC2D3B20-103A-43F1-B160-8A8AC8A7A6E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DockCode"
+              DTS:DTSID="{FDDEF77E-D8E3-462C-936F-D47DD65ED67B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LineFeed"
+              DTS:DTSID="{A25E83EF-DDC2-40D2-9398-83A4A2A8ED62}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReserveLineFeed"
+              DTS:DTSID="{28008C44-803C-46DF-B78E-42BF74DD57AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ContactName"
+              DTS:DTSID="{0E9AB348-DBC0-46BE-8638-3B2C1CA1F3BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ContactTelephone"
+              DTS:DTSID="{D00D0090-D8E3-4586-8E69-FD598E593C28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastReceivedASNNum"
+              DTS:DTSID="{6CC4C135-7C06-45EC-A8F0-3D612C34E792}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastShippedQty"
+              DTS:DTSID="{08AD6B22-3713-4A5B-9CBB-B4F413B2A325}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastShippedDate"
+              DTS:DTSID="{AD06AADF-40C7-4579-A6C8-ED8A29F45A73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CumShippedQty"
+              DTS:DTSID="{4375DA4D-DAA2-4A4E-B2FE-E5D7BDEA7B8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CumStartDate"
+              DTS:DTSID="{6212310F-0628-4A2F-8C1E-DD508274E594}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CumEndDate"
+              DTS:DTSID="{A7EA3B8D-7C81-421E-BE72-5794AA753F28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ForecastCumQty"
+              DTS:DTSID="{7DB15E9A-1638-4E92-A3A6-1F06A8E1FD01}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ForecastNetQty"
+              DTS:DTSID="{B84D185A-F9CA-47CE-8B84-33B65BD5B6AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UOM"
+              DTS:DTSID="{15FFFABB-58E3-4273-9580-769B2A497421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ForecastStatus"
+              DTS:DTSID="{485F4AD2-1F15-48C9-A8A7-FDBCB9E2F732}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ForecastDate"
+              DTS:DTSID="{8474BD41-8910-4BA4-8C72-F25661B8C31B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ForecastTime"
+              DTS:DTSID="{8F486876-ADE3-409E-AE46-DDE54DFD04C2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E549508A-4B54-4933-AAC2-2D7DA8065BE2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ETL\FordOrder\0000000000000000000000000000000000000000000000.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B5C9309-5BB0-43BA-B407-5756E1EF1B53}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::PathException] +  @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileException">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ETL\ImportException\0000000000000000000000000000000000000000000000.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34D4073E-9034-45A1-84AD-1EA67D3157BC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::PathTo] +  @[User::FileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileImported">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ETL\FordImported\0000000000000000000000000000000000000000000000.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A0C099A-6826-4DB5-9732-480F27ADC032}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="ISNULL(@[User::CurrentFile]) || LEN(@[User::CurrentFile]) == 0 &#xA;? &quot;&quot; &#xA;: REVERSE(LEFT(REVERSE(@[User::CurrentFile]), FINDSTRING(REVERSE(@[User::CurrentFile]), &quot;\\&quot;, 1) - 1))"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">0000000000000000000000000000000000000000000000.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A9FB1C1-869F-4A8B-A6B6-23898EBDD187}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PathException">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ETL\ImportException\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8DEA9028-C9ED-4F66-959D-DC2251A53009}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PathFrom">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ETL\FordOrder\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{620A224C-6FEE-462F-8CFD-1022FA8A50E9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PathTo">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\ETL\FordImported\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Get Exception File Location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{43fccca5-8405-45c3-855b-eb455731003a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Get Exception File Location"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+          SQLTask:SqlStatementSource="SELECT TOP (1) Description FROM [dbo].[UserDefinedTypeValues] WHERE TypeName = 'FordImportPath' AND Value = 'PathException'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Description"
+            SQLTask:DtsVariableName="User::PathException" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Get Imported File Location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5dd52043-f66d-4b10-a689-0cb8bb8f175d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Get Imported File Location"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+          SQLTask:SqlStatementSource="SELECT TOP (1) Description FROM [dbo].[UserDefinedTypeValues] WHERE TypeName = 'FordImportPath' AND Value = 'PathTo'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Description"
+            SQLTask:DtsVariableName="User::PathTo" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Get Source File Location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{637ED6D6-CA4F-4C10-AD16-4F2DE218FD1F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Get Source File Location"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+          SQLTask:SqlStatementSource="SELECT TOP (1) Description FROM [dbo].[UserDefinedTypeValues] WHERE TypeName = 'FordImportPath' AND Value = 'PathFrom'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Description"
+            SQLTask:DtsVariableName="User::PathFrom" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Validate Exception File Location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{eb447965-0254-4f3c-82f6-e761eebc7a7e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Validate Exception File Location"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+          SQLTask:SqlStatementSource="IF EXISTS ( SELECT 1 WHERE LEN(TRIM(?)) = 0 ) &#xA;BEGIN&#xA; RAISERROR('Data Error: Not Found PathException', 16, 1);&#xA; RETURN;&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::PathException"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Validate Imported FileLocation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{44E9C1B5-90D9-446A-A3A9-78441E6B77AF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Validate Imported FileLocation"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+          SQLTask:SqlStatementSource="IF EXISTS ( SELECT 1 WHERE LEN(TRIM(?)) = 0 ) &#xA;BEGIN&#xA;&#x9;RAISERROR('Data Error: Not Found Imported Location', 16, 1);&#xA;&#x9;RETURN;&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::PathTo"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Validate Source File  Location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0825B94A-45E9-48CB-B98B-539DCD124018}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Validate Source File  Location"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+          SQLTask:SqlStatementSource="IF EXISTS ( SELECT 1 WHERE LEN(TRIM(?)) = 0 ) &#xA;BEGIN&#xA;&#x9;RAISERROR('Data Error: Not Found Source Location', 16, 1);&#xA;&#x9;RETURN;&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::PathFrom"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container - Read 862 Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{D1F5EF47-62C5-4F63-924B-E214ED64DB38}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container - Read 862 Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{AD8C06A1-2616-4959-94D7-42CFC59C9FB5}"
+        DTS:ObjectName="{AD8C06A1-2616-4959-94D7-42CFC59C9FB5}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::PathFrom]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">@[$Project::FileSpec862]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\ETL\FordOrder\" />
+            <FEFEProperty
+              FileSpec="862*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7DDA3DD9-DE26-4939-96DB-AA444D06E8E5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task - Import F862"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Inputs[Derived Column Input].Columns[ForecastNetQty]"
+                          cachedDataType="numeric"
+                          cachedName="ForecastNetQty"
+                          cachedPrecision="18"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastNetQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Inputs[Derived Column Input].Columns[ForecastDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="ForecastDate"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[FileName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[FileName]"
+                          name="FileName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::FileName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::FileName]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[ForecastFinalQty]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[ForecastFinalQty]"
+                          name="ForecastFinalQty"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastNetQty]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ForecastNetQty</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[ForecastDateNew]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[ForecastDateNew]"
+                          name="ForecastDateNew"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastDate]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ForecastDate</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Ctrl_Num]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ctrl_Num]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Ctrl_Num]"
+                          name="Ctrl_Num"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Num]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_Num]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Num]"
+                          name="Msg_Num"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_RealseDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_RealseDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_RealseDate]"
+                          name="Msg_RealseDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Purpose]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_Purpose]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Purpose]"
+                          name="Msg_Purpose"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ScheduleType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ScheduleType]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ScheduleType]"
+                          name="ScheduleType"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                          name="StartDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                          name="EndDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Ref_Num]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_Ref_Num]"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Ref_Num]"
+                          name="Msg_Ref_Num"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ShipToCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ShipToCode]"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ShipToCode]"
+                          name="ShipToCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ShipFromCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ShipFromCode]"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ShipFromCode]"
+                          name="ShipFromCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Consignee]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Consignee]"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Consignee]"
+                          name="Consignee"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[PartNum]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PartNum]"
+                          length="40"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[PartNum]"
+                          name="PartNum"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[PO_Num]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PO_Num]"
+                          length="40"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[PO_Num]"
+                          name="PO_Num"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[DockCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DockCode]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[DockCode]"
+                          name="DockCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LineFeed]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LineFeed]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LineFeed]"
+                          name="LineFeed"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ReserveLineFeed]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ReserveLineFeed]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ReserveLineFeed]"
+                          name="ReserveLineFeed"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ContactName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ContactName]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ContactName]"
+                          name="ContactName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ContactTelephone]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ContactTelephone]"
+                          length="15"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ContactTelephone]"
+                          name="ContactTelephone"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastReceivedASNNum]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastReceivedASNNum]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastReceivedASNNum]"
+                          name="LastReceivedASNNum"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastShippedQty]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastShippedQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastShippedQty]"
+                          name="LastShippedQty"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastShippedDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastShippedDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastShippedDate]"
+                          name="LastShippedDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumShippedQty]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CumShippedQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumShippedQty]"
+                          name="CumShippedQty"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumStartDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CumStartDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumStartDate]"
+                          name="CumStartDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumEndDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CumEndDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumEndDate]"
+                          name="CumEndDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastCumQty]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastCumQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastCumQty]"
+                          name="ForecastCumQty"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastNetQty]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastNetQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastNetQty]"
+                          name="ForecastNetQty"
+                          precision="18"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[UOM]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UOM]"
+                          length="4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[UOM]"
+                          name="UOM"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastStatus]"
+                          length="4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastStatus]"
+                          name="ForecastStatus"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastDate]"
+                          length="8"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastDate]"
+                          name="ForecastDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastTime]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastTime]"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastTime]"
+                          name="ForecastTime"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ctrl_Num]"
+                          dataType="wstr"
+                          length="10"
+                          name="Ctrl_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_Num]"
+                          dataType="wstr"
+                          length="10"
+                          name="Msg_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_RealseDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="Msg_RealseDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_Purpose]"
+                          dataType="wstr"
+                          length="8"
+                          name="Msg_Purpose" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ScheduleType]"
+                          dataType="wstr"
+                          length="10"
+                          name="ScheduleType" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="StartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="EndDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Msg_Ref_Num]"
+                          dataType="wstr"
+                          length="15"
+                          name="Msg_Ref_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ShipToCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="ShipToCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ShipFromCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="ShipFromCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Consignee]"
+                          dataType="wstr"
+                          length="15"
+                          name="Consignee" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PartNum]"
+                          dataType="wstr"
+                          length="40"
+                          name="PartNum" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PO_Num]"
+                          dataType="wstr"
+                          length="40"
+                          name="PO_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DockCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="DockCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LineFeed]"
+                          dataType="wstr"
+                          length="10"
+                          name="LineFeed" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ReserveLineFeed]"
+                          dataType="wstr"
+                          length="10"
+                          name="ReserveLineFeed" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ContactName]"
+                          dataType="wstr"
+                          length="50"
+                          name="ContactName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ContactTelephone]"
+                          dataType="wstr"
+                          length="15"
+                          name="ContactTelephone" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastReceivedASNNum]"
+                          dataType="wstr"
+                          length="10"
+                          name="LastReceivedASNNum" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastShippedQty]"
+                          dataType="numeric"
+                          name="LastShippedQty"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastShippedDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="LastShippedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CumShippedQty]"
+                          dataType="numeric"
+                          name="CumShippedQty"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CumStartDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="CumStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CumEndDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="CumEndDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastCumQty]"
+                          dataType="numeric"
+                          name="ForecastCumQty"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastNetQty]"
+                          dataType="numeric"
+                          name="ForecastNetQty"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UOM]"
+                          dataType="wstr"
+                          length="4"
+                          name="UOM" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastStatus]"
+                          dataType="wstr"
+                          length="4"
+                          name="ForecastStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="ForecastDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ForecastTime]"
+                          dataType="wstr"
+                          length="10"
+                          name="ForecastTime" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FMT_F862]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{7F1F39B3-C348-4DEA-920B-220C7C35484D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MSSQLOleDBConnection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ctrl_Num]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Ctrl_Num"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ctrl_Num]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Ctrl_Num]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Msg_Num]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Msg_Num"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_Num]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Num]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Msg_RealseDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Msg_RealseDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_RealseDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_RealseDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Msg_Purpose]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Msg_Purpose"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_Purpose]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Purpose]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ScheduleType]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ScheduleType"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduleType]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ScheduleType]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="StartDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="EndDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Msg_Ref_Num]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Msg_Ref_Num"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_Ref_Num]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Msg_Ref_Num]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipToCode]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="ShipToCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToCode]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ShipToCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipFromCode]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="ShipFromCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipFromCode]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ShipFromCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Consignee]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Consignee"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Consignee]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[Consignee]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PartNum]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="PartNum"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PartNum]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[PartNum]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PO_Num]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="PO_Num"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PO_num]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[PO_Num]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DockCode]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DockCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DockCode]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[DockCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LineFeed]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="LineFeed"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LineFeed]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LineFeed]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReserveLineFeed]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ReserveLineFeed"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveLineFeed]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ReserveLineFeed]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContactName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ContactName"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ContactName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContactTelephone]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="ContactTelephone"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactTelephone]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ContactTelephone]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastReceivedASNNum]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="LastReceivedASNNum"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceivedASNNum]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastReceivedASNNum]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastShippedQty]"
+                          cachedDataType="numeric"
+                          cachedName="LastShippedQty"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastShippedQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastShippedQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastShippedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="LastShippedDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastShippedDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[LastShippedDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CumShippedQty]"
+                          cachedDataType="numeric"
+                          cachedName="CumShippedQty"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CumShippedQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumShippedQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CumStartDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="CumStartDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CumStartDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumStartDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CumEndDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="CumEndDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CumEndDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[CumEndDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastCumQty]"
+                          cachedDataType="numeric"
+                          cachedName="ForecastCumQty"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastCumQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastCumQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastNetQty]"
+                          cachedDataType="numeric"
+                          cachedName="ForecastNetQty"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastNetQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastNetQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UOM]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="UOM"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UOM]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[UOM]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="ForecastStatus"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastStatus]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastStatus]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastDate]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="ForecastDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastDate]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastTime]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ForecastTime"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastTime]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output].Columns[ForecastTime]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FileName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FileName"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[FileName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastFinalQty]"
+                          cachedDataType="numeric"
+                          cachedName="ForecastFinalQty"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastFinalQty]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[ForecastFinalQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ForecastDateNew]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="ForecastDateNew"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastDateNew]"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output].Columns[ForecastDateNew]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ctrl_Num]"
+                          dataType="wstr"
+                          length="10"
+                          name="Ctrl_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_Num]"
+                          dataType="wstr"
+                          length="10"
+                          name="Msg_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_RealseDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="Msg_RealseDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_Purpose]"
+                          dataType="wstr"
+                          length="8"
+                          name="Msg_Purpose" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduleType]"
+                          dataType="wstr"
+                          length="10"
+                          name="ScheduleType" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="StartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="EndDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Msg_Ref_Num]"
+                          dataType="wstr"
+                          length="15"
+                          name="Msg_Ref_Num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="ShipToCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipFromCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="ShipFromCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Consignee]"
+                          dataType="wstr"
+                          length="15"
+                          name="Consignee" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PartNum]"
+                          dataType="wstr"
+                          length="40"
+                          name="PartNum" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PO_num]"
+                          dataType="wstr"
+                          length="40"
+                          name="PO_num" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DockCode]"
+                          dataType="wstr"
+                          length="10"
+                          name="DockCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LineFeed]"
+                          dataType="wstr"
+                          length="10"
+                          name="LineFeed" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveLineFeed]"
+                          dataType="wstr"
+                          length="10"
+                          name="ReserveLineFeed" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactName]"
+                          dataType="wstr"
+                          length="50"
+                          name="ContactName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactTelephone]"
+                          dataType="wstr"
+                          length="15"
+                          name="ContactTelephone" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastReceivedASNNum]"
+                          dataType="wstr"
+                          length="10"
+                          name="LastReceivedASNNum" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastShippedQty]"
+                          dataType="i4"
+                          name="LastShippedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastShippedDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="LastShippedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CumShippedQty]"
+                          dataType="i4"
+                          name="CumShippedQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CumStartDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="CumStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CumEndDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="CumEndDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastCumQty]"
+                          dataType="i4"
+                          name="ForecastCumQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastNetQty]"
+                          dataType="i4"
+                          name="ForecastNetQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UOM]"
+                          dataType="wstr"
+                          length="4"
+                          name="UOM" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastStatus]"
+                          dataType="wstr"
+                          length="4"
+                          name="ForecastStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastDate]"
+                          dataType="wstr"
+                          length="8"
+                          name="ForecastDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastTime]"
+                          dataType="wstr"
+                          length="10"
+                          name="ForecastTime" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastFinalQty]"
+                          dataType="i4"
+                          name="ForecastFinalQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ForecastDateNew]"
+                          dataType="wstr"
+                          length="8"
+                          name="ForecastDateNew" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FileName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportDate]"
+                          dataType="dbDate"
+                          name="ImportDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreateDateTime]"
+                          dataType="dbTimeStamp"
+                          name="CreateDateTime" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlantCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlantCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustNum]"
+                          dataType="wstr"
+                          length="7"
+                          name="CustNum" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862.Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Begin Transaction"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{07EB2E28-D0DB-4467-9760-C450DCF85714}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Begin Transaction"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="SET XACT_ABORT ON;&#xA;SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;&#xA;BEGIN TRANSACTION;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Commit Transaction"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8F4805CB-A248-4E07-BDB3-CAE490BCA410}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Commit Transaction"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="commit transaction;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Convert Msg_Ref_Num"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{997CBB3B-C61B-4E75-AC9B-2D14C2D9BF74}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Convert Msg_Ref_Num"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="UPDATE [dbo].[FMT_F862]&#xA;SET Msg_Ref_Num = CAST(CAST(Msg_Ref_Num  AS float) AS decimal(20,0))&#xA;WHERE ISNUMERIC(Msg_Ref_Num ) = 1 AND FileName=?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Forecast"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{451970BC-A187-4C2A-A03E-F5791B09083D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Create Forecast"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="&#xA;EXEC  [dbo].[GEN_F862CreateForecastDataSp]&#xA;&#x9;&#x9;@FileName = ?,&#xA;&#x9;&#x9;@Site = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Project::SLSite"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Log File"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{46926DD9-B902-40B8-AD7A-5A290215DD8D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Create Log File"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[FMT_Files_Log]&#xA;           ([site_ref]&#xA;           ,[FileName]&#xA;           ,[Type])&#xA;     VALUES&#xA;           (?, ?, 'F620')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::SLSite"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Perform Forecast Data"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7B6AE29D-88AE-4227-9022-0C7D37F18F4F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Perform Forecast Data"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="EXEC [dbo].[GEN_F862PerformForecastDataSp]&#xA;&#x9;&#x9;@FileName = ?,&#xA;&#x9;&#x9;@Site = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Project::SLSite"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Update File Status"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{876E8292-A9C3-4490-9A95-A7674EA56C4F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Update File Status"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="UPDATE [dbo].[FMT_Files_Log] SET GenerateFC = '1', UpdateStatus = '1'&#xA;WHERE [FileName] = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files\File System Task - Move File To Imported Folder"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{DB00B60F-C0AA-4B28-AE6F-4B5D8C2A30AA}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Move File To Imported Folder"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::CurrentFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::PathTo"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{03EE2867-356F-4F57-8F32-A2C819CFC368}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Begin Transaction"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Log File" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{BC9BF251-CD0B-45B8-9DD7-9EC38531D4FC}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Log File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{3EA5A711-B402-474E-A315-9DCBEB19EE45}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Convert Msg_Ref_Num" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E35F68E-91F0-482E-898F-702390A65DDF}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Convert Msg_Ref_Num"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Perform Forecast Data" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{4743DB13-0946-4DEF-98B6-F81E08B66B9F}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Perform Forecast Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Forecast" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{A9AEF654-49B7-48F3-B964-2DE2DC6672AE}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\File System Task - Move File To Imported Folder"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Commit Transaction" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{C1747BD0-3DD6-43D0-AF3C-C29D2247B06A}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Forecast"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Update File Status" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{BA6D43B1-AB74-4B31-9581-BDB8DDCC5150}"
+          DTS:From="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Update File Status"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\Foreach Loop Container - Read 862 Files\File System Task - Move File To Imported Folder" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E36E340E-E018-4EE1-95C8-01055CE1CA0A}"
+          DTS:ObjectName="{E36E340E-E018-4EE1-95C8-01055CE1CA0A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::CurrentFile" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{15CF8807-147C-46FE-AA39-3C5052BAA9E4}"
+      DTS:From="Package\Execute SQL Task - Get Source File Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task - Validate Source File  Location" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4F79FEB9-559E-43DA-A626-00366BE51B92}"
+      DTS:From="Package\Execute SQL Task - Validate Source File  Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task - Get Imported File Location" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D8B47F25-9523-4B73-B91F-20FEF30CD0F5}"
+      DTS:From="Package\Execute SQL Task - Get Imported File Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute SQL Task - Validate Imported FileLocation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7AC63D6-4840-4FE3-AFFA-BAC6AEB6E050}"
+      DTS:From="Package\Execute SQL Task - Validate Exception File Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Foreach Loop Container - Read 862 Files" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B1C3586-D234-450A-895B-2745A9C4A6DC}"
+      DTS:From="Package\Execute SQL Task - Validate Imported FileLocation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Execute SQL Task - Get Exception File Location" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{DCB31771-D9F9-48AB-BB5A-421CDEC3EC2E}"
+      DTS:From="Package\Execute SQL Task - Get Exception File Location"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Execute SQL Task - Validate Exception File Location" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{70F424CD-0874-4A0C-90A6-7C99B8B5F0AB}"
+      DTS:EventID="1955847752"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{792763D8-2776-433B-A792-682359BC72AB}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task - Logging Exception Message"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{66678ece-287a-44ac-8812-5ee561f5ef67}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Logging Exception Message">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D4901C8D-39D0-49F3-9D8B-908FB5B15E11}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[FMT_ETL_ExceptionLog]&#xA;           ([FileName]&#xA;           ,[PackageName]&#xA;           ,[TaskName]&#xA;           ,[ErrorDescription]&#xA;           ,[ErrorCode])&#xA;     VALUES&#xA;           (?, ?, ?, ?, ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task - Rollback Transaction"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{102563ED-B095-44BF-AA47-35DA2EFEB2D1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - Rollback Transaction">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+              SQLTask:SqlStatementSource="if xact_state() &lt;&gt; 0 rollback transaction;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\File System Task - Move File To Exception"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{b327d24e-7674-44ba-9bac-aa32f8202e34}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Move File To Exception">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::CurrentFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::PathException"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862"
+          TopLeft="46.600000010644,145.764705596808" />
+        <NodeLayout
+          Size="257.6,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Begin Transaction"
+          TopLeft="25.1714285364565,0.294117576677877" />
+        <NodeLayout
+          Size="267.2,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Commit Transaction"
+          TopLeft="22.9999999893567,563.882352376789" />
+        <NodeLayout
+          Size="281.6,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Convert Msg_Ref_Num"
+          TopLeft="19.4285714103251,211.32941147849" />
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Forecast"
+          TopLeft="37.7714294198826,351.07058797455" />
+        <NodeLayout
+          Size="243.2,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Create Log File"
+          TopLeft="33.028571410325,73.3647057107576" />
+        <NodeLayout
+          Size="279.2,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Perform Forecast Data"
+          TopLeft="19.8285722405326,282.858823355806" />
+        <NodeLayout
+          Size="259.2,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Execute SQL Task - Update File Status"
+          TopLeft="28.4857151144014,426.894117428543" />
+        <NodeLayout
+          Size="306.4,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\File System Task - Move File To Imported Folder"
+          TopLeft="22.3142856732314,497.423528861453" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint]"
+          TopLeft="154.299999973391,41.8941175766779">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.4705881340797"
+              Start="0,0"
+              End="0,23.9705881340797">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9705881340797" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 1]"
+          TopLeft="155.614285710484,114.964705710758">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7999998860504"
+              Start="0,0"
+              End="0,23.2999998860504">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2999998860504" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 2]"
+          TopLeft="158.414285710485,187.364705596808">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.964705881682"
+              Start="0,0"
+              End="0,16.464705881682">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.464705881682" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 3]"
+          TopLeft="159.828571825429,252.92941147849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.929411877316"
+              Start="0,0"
+              End="0,22.429411877316">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.429411877316" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 4]"
+          TopLeft="160.400000830208,324.458823355806">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.611764618744"
+              Start="0,0"
+              End="0,19.111764618744">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.111764618744" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 5]"
+          TopLeft="175.514285673231,539.023528861453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.9142856838747,24.858823515336"
+              Start="0,0"
+              End="-18.9142856838747,17.358823515336">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.42941175766799" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.42941175766799"
+                    Point2="0,12.429411757668"
+                    Point3="-4,12.429411757668" />
+                  <mssgle:LineSegment
+                    End="-14.9142856838747,12.429411757668" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.9142856838747,12.429411757668"
+                    Point2="-18.9142856838747,12.429411757668"
+                    Point3="-18.9142856838747,16.429411757668" />
+                  <mssgle:LineSegment
+                    End="-18.9142856838747,17.358823515336" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 6]"
+          TopLeft="159.728572267142,392.67058797455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.2235294539932"
+              Start="0,0"
+              End="0,26.7235294539932">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7235294539932" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files.PrecedenceConstraints[Constraint 7]"
+          TopLeft="158.085715114401,468.494117428543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.42857055883,28.92941143291"
+              Start="0,0"
+              End="17.42857055883,21.42941143291">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.464705716455" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.464705716455"
+                    Point2="0,14.464705716455"
+                    Point3="4,14.464705716455" />
+                  <mssgle:LineSegment
+                    End="13.42857055883,14.464705716455" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.42857055883,14.464705716455"
+                    Point2="17.42857055883,14.464705716455"
+                    Point3="17.42857055883,18.464705716455" />
+                  <mssgle:LineSegment
+                    End="17.42857055883,21.42941143291" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="333.6,660.8"
+          Size="333.6,704"
+          Id="Package\Foreach Loop Container - Read 862 Files"
+          TopLeft="355.714286471509,187.482355111587" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="332,432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.7142864715086,82.6823551115872"
+              Start="0,0"
+              End="16.2142864715086,82.6823551115872">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="7.85714323575431,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.85714323575431,0"
+                    Point2="11.8571432357543,0"
+                    Point3="11.8571432357543,4" />
+                  <mssgle:LineSegment
+                    End="11.8571432357543,78.6823551115872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.8571432357543,78.6823551115872"
+                    Point2="11.8571432357543,82.6823551115872"
+                    Point3="15.8571432357543,82.6823551115872" />
+                  <mssgle:LineSegment
+                    End="16.2142864715086,82.6823551115872" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="298.4,41.6"
+          Id="Package\Execute SQL Task - Get Imported File Location"
+          TopLeft="13.3571428738688,138.55882341278" />
+        <NodeLayout
+          Size="287.2,41.6"
+          Id="Package\Execute SQL Task - Get Source File Location"
+          TopLeft="24.0714286109624,5.5" />
+        <NodeLayout
+          Size="311.2,41.6"
+          Id="Package\Execute SQL Task - Validate Source File  Location"
+          TopLeft="14.7857143054813,72.7941175880729" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="169.028571458222,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.6941175880729"
+              Start="0,0"
+              End="0,18.1941175880729">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1941175880729" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="166.471428589675,114.394117588073">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.1647058247071"
+              Start="0,0"
+              End="0,16.6647058247071">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6647058247071" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="316,41.6"
+          Id="Package\Execute SQL Task - Validate Imported FileLocation"
+          TopLeft="6.21428571580626,214.264705699363" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="163.385714294838,180.15882341278">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.105882286583"
+              Start="0,0"
+              End="0,26.605882286583">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.605882286583" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="300,41.6"
+          Id="Package\Execute SQL Task - Get Exception File Location"
+          TopLeft="14.5142857690247,280.858823333015" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="164.364285742415,255.864705699363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.994117633652"
+              Start="0,0"
+              End="0,17.494117633652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.494117633652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="321.6,41.6"
+          Id="Package\Execute SQL Task - Validate Exception File Location"
+          TopLeft="3.80000003193103,358.341176347925" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="164.557142900478,322.458823333015">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.8823530149096"
+              Start="0,0"
+              End="0,28.3823530149096">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3823530149096" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Initial Environment"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="335.2,468.8"
+          Size="335.2,512"
+          Id="c5198581-9c3b-4cc4-b07c-fd090279e145"
+          TopLeft="6.64285716870592,9.40000038742971">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Execute SQL Task - Get Imported File Location</s:String>
+            <s:String>Package\Execute SQL Task - Get Source File Location</s:String>
+            <s:String>Package\Execute SQL Task - Validate Source File  Location</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
+            <s:String>Package\Execute SQL Task - Validate Imported FileLocation</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
+            <s:String>Package\Execute SQL Task - Get Exception File Location</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 4]</s:String>
+            <s:String>Package\Execute SQL Task - Validate Exception File Location</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 5]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="303.2,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task - Logging Exception Message"
+          TopLeft="290.000000617334,8.4117646985091" />
+        <NodeLayout
+          Size="270.4,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task - Rollback Transaction"
+          TopLeft="8.28571304313994,6.58823453101321" />
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package.EventHandlers[OnError]\File System Task - Move File To Exception"
+          TopLeft="252.142857679603,138.411764584559" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Flat File Source"
+          TopLeft="26.428571484831,16.0588235153356" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\Derived Column"
+          TopLeft="132.142857424155,118.52941166081" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination"
+          TopLeft="196.428571846716,211.05882334441" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862.Paths[Flat File Source Output]"
+          TopLeft="101.628571484831,57.6588235153356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.914285939324,60.8705881454746"
+              Start="0,0"
+              End="106.914285939324,53.3705881454746">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4352940727373" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.4352940727373"
+                    Point2="0,30.4352940727373"
+                    Point3="4,30.4352940727373" />
+                  <mssgle:LineSegment
+                    End="102.914285939324,30.4352940727373" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102.914285939324,30.4352940727373"
+                    Point2="106.914285939324,30.4352940727373"
+                    Point3="106.914285939324,34.4352940727373" />
+                  <mssgle:LineSegment
+                    End="106.914285939324,53.3705881454746" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862.Paths[Derived Column Output]"
+          TopLeft="208.542857424155,160.12941166081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.0857144225617,50.9294116836003"
+              Start="0,0"
+              End="73.0857144225617,43.4294116836003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4647058418001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4647058418001"
+                    Point2="0,25.4647058418001"
+                    Point3="4,25.4647058418001" />
+                  <mssgle:LineSegment
+                    End="69.0857144225617,25.4647058418001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.0857144225617,25.4647058418001"
+                    Point2="73.0857144225617,25.4647058418001"
+                    Point3="73.0857144225617,29.4647058418001" />
+                  <mssgle:LineSegment
+                    End="73.0857144225617,43.4294116836003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container - Read 862 Files\Data Flow Task - Import F862\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

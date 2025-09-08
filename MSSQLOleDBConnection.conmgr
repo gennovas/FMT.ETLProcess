@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MSSQLOleDBConnection"
+  DTS:DTSID="{7F1F39B3-C348-4DEA-920B-220C7C35484D}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"Data Source=" + @[$Project::SQLServerName]  +
+";Initial Catalog=" + @[$Project::SQLDatabaseName]  +
+";Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" +
+ "Application Name=" +  @[$Project::ApplicationName]+ ";"</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::SQLDatabaseName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::SQLServerName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Retain="True"
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=TTC-SQLDB;Initial Catalog=TTC_LIVE_App;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=FMT - ETL Automation Workflow;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
