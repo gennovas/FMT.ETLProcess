@@ -300,3 +300,7 @@ Event Handlers (OnError)
    ├─ Execute SQL Task - Logging Exception Message  
    └─ File System Task - Move File To Exception Folder
 ``` 
+---
+# Example Files
+1. F830
+[📄 830_20250421082805_VP1U53B901 - Original.csv](https://raw.githubusercontent.com/gennovas/FMT.ETLProcess/main/Example%20Files/830_20250421082805_VP1U53B901%20-%20Orginal.csv)
