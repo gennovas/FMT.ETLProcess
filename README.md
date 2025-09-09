@@ -319,3 +319,49 @@ Event Handlers (OnError)
 - [export20250622220454 FSST.xlsx](https://raw.githubusercontent.com/gennovas/FMT.ETLProcess/main/Example%20Files/export20250622220454%20FSST.xlsx)  
 - [export20250622220455 FSST.xlsx](https://raw.githubusercontent.com/gennovas/FMT.ETLProcess/main/Example%20Files/export20250622220455%20FSST.xlsx)  
 
+---
+# Column Mapping
+
+## 1. F830
+
+| Source Column Name   | Source Data Type/Size              | Destination Column Name | Destination Data Type/Size |
+|----------------------|------------------------------------|--------------------------|-----------------------------|
+| Ctrl_Num             | Unicode string [DT_WSTR]/10        | Ctrl_Num                 | nvarchar/10                 |
+| Msg_Num              | Unicode string [DT_WSTR]/10        | Msg_Num                  | nvarchar/10                 |
+| Msg_RealseDate       | Unicode string [DT_WSTR]/8         | Msg_RealseDate           | nvarchar/8                  |
+| Msg_Purpose          | Unicode string [DT_WSTR]/8         | Msg_Purpose              | nvarchar/8                  |
+| ScheduleType         | Unicode string [DT_WSTR]/10        | ScheduleType             | nvarchar/10                 |
+| StartDate            | Unicode string [DT_WSTR]/8         | StartDate                | nvarchar/8                  |
+| EndDate              | Unicode string [DT_WSTR]/8         | EndDate                  | nvarchar/8                  |
+| Note                 | Unicode string [DT_WSTR]/50        | Note                     | nvarchar/50                 |
+| ShipToCode           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
+| ShipFromCode         | Unicode string [DT_WSTR]/15        | ShipFromCode             | nvarchar/15                 |
+| Consignee            | Unicode string [DT_WSTR]/15        | Consignee                | nvarchar/15                 |
+| PartNum              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
+| PO_num               | Unicode string [DT_WSTR]/40        | PO_num                   | nvarchar/40                 |
+| ReleaseStatus        | Unicode string [DT_WSTR]/10        | ReleaseStatus            | nvarchar/10                 |
+| DockCode             | Unicode string [DT_WSTR]/10        | DockCode                 | nvarchar/10                 |
+| LineFeed             | Unicode string [DT_WSTR]/10        | LineFeed                 | nvarchar/10                 |
+| ReserveLineFeed      | Unicode string [DT_WSTR]/10        | ReserveLineFeed          | nvarchar/10                 |
+| ContactName          | Unicode string [DT_WSTR]/50        | ContactName              | nvarchar/50                 |
+| ContactTelephone     | Unicode string [DT_WSTR]/15        | ContactTelephone         | nvarchar/15                 |
+| FabAuthQty           | numeric [DT_NUMERIC]               | FabAuthQty               | int                         |
+| FabAuthStartDate     | Unicode string [DT_WSTR]/8         | FabAuthStartDate         | nvarchar/8                  |
+| FabAuthEndDate       | Unicode string [DT_WSTR]/8         | FabAuthEndDate           | nvarchar/8                  |
+| MatAuthQty           | numeric [DT_NUMERIC]               | MatAuthQty               | int                         |
+| MatAuthStartDate     | Unicode string [DT_WSTR]/8         | MatAuthStartDate         | nvarchar/8                  |
+| MatAuthEndDate       | Unicode string [DT_WSTR]/8         | MatAuthEndDate           | nvarchar/8                  |
+| LastReceivedASNNum   | Unicode string [DT_WSTR]/10        | LastReceivedASNNum       | nvarchar/10                 |
+| LastShippedQty       | numeric [DT_NUMERIC]               | LastShippedQty           | int                         |
+| LastShippedDate      | Unicode string [DT_WSTR]/8         | LastShippedDate          | nvarchar/8                  |
+| CumShippedQty        | numeric [DT_NUMERIC]               | CumShippedQty            | int                         |
+| CumStartDate         | Unicode string [DT_WSTR]/8         | CumStartDate             | nvarchar/8                  |
+| CumEndDate           | Unicode string [DT_WSTR]/8         | CumEndDate               | nvarchar/8                  |
+| ForecastCumQty       | numeric [DT_NUMERIC]               | ForecastCumQty           | int                         |
+| ForecastNetQty       | numeric [DT_NUMERIC]               | ForecastNetQty           | int                         |
+| UOM                  | Unicode string [DT_WSTR]/4         | UOM                      | nvarchar/4                  |
+| ForecastStatus       | Unicode string [DT_WSTR]/4         | ForecastStatus           | nvarchar/4                  |
+| ForecastDate         | Unicode string [DT_WSTR]/8         | ForecastDate             | nvarchar/8                  |
+| FlexFCStartDate      | Unicode string [DT_WSTR]/8         | FlexFCStartDate          | nvarchar/8                  |
+| FlexFCEndDate        | Unicode string [DT_WSTR]/8         | FlexFCEndDate            | nvarchar/8                  |
+| FCDateQtyBy          | Unicode string [DT_WSTR]/4         | FCDateQtyBy              | nvarchar/4                  |
