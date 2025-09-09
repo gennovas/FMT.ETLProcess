@@ -42,7 +42,7 @@ These parameters are required for proper configuration of file processing and da
 ---
 ## User Defined Type
 
-**ExportPlant**
+**1. ExportPlant**
 - **Value** = ShipToCode column in (F830, F862), CustLoc column in (FS01, FS02)  
 - **Description** = Weekday name
   
@@ -57,7 +57,7 @@ These parameters are required for proper configuration of file processing and da
 | PLF30A  | Friday     |
 | PLF31A  | Saturday   |
 
-**FordImportPath**
+**2. FordImportPath**
 - **Value** = Path name  
 - **Description** = Directory
 
@@ -70,7 +70,7 @@ These parameters are required for proper configuration of file processing and da
 | PathFrom      | C:\ETL\FordOrder\       |
 | PathTo        | C:\ETL\FordImported\    |
 
-**ProductMap**
+**3. ProductMap**
 - **Value** = Product column in FS01, FS02  
 - **Description** = SyteLine item code
 
@@ -85,16 +85,8 @@ These parameters are required for proper configuration of file processing and da
 | GN1Z5500E    | SP06-08-N  |
 | GN1Z5500F    | SP06-09-N  |
 | GN1Z5A757A   | SP06-10-N  |
-| GN1Z5A758A   | SP06-11-N  |
-| JB3Z17A954B  | SP07-02-N  |
-| JB3Z17A954C  | SP07-04-N  |
-| MB3Z17A954L  | SP07-05-N  |
-| MB3Z17A954M  | SP07-06-N  |
-| MB3Z17A955J  | SP07-07-N  |
-| MB3Z17A955K  | SP08-04-N  |
-| MB3Z6G079G   | SP08-05-N  |
 
-**PlantCodeMap**
+**4. PlantCodeMap**
 - **Value** = CustLoc column in FS01, FS02  
 - **Description** = Plant code
 
