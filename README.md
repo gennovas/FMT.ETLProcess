@@ -42,7 +42,7 @@ These parameters are required for proper configuration of file processing and da
 ---
 ## User Defined Type
 
-**ExportPlant**
+**1. ExportPlant**
 - **Value** = ShipToCode column in (F830, F862), CustLoc column in (FS01, FS02)  
 - **Description** = Weekday name
   
@@ -57,7 +57,7 @@ These parameters are required for proper configuration of file processing and da
 | PLF30A  | Friday     |
 | PLF31A  | Saturday   |
 
-**FordImportPath**
+**2. FordImportPath**
 - **Value** = Path name  
 - **Description** = Directory
 
@@ -70,7 +70,7 @@ These parameters are required for proper configuration of file processing and da
 | PathFrom      | C:\ETL\FordOrder\       |
 | PathTo        | C:\ETL\FordImported\    |
 
-**ProductMap**
+**3. ProductMap**
 - **Value** = Product column in FS01, FS02  
 - **Description** = SyteLine item code
 
@@ -85,16 +85,8 @@ These parameters are required for proper configuration of file processing and da
 | GN1Z5500E    | SP06-08-N  |
 | GN1Z5500F    | SP06-09-N  |
 | GN1Z5A757A   | SP06-10-N  |
-| GN1Z5A758A   | SP06-11-N  |
-| JB3Z17A954B  | SP07-02-N  |
-| JB3Z17A954C  | SP07-04-N  |
-| MB3Z17A954L  | SP07-05-N  |
-| MB3Z17A954M  | SP07-06-N  |
-| MB3Z17A955J  | SP07-07-N  |
-| MB3Z17A955K  | SP08-04-N  |
-| MB3Z6G079G   | SP08-05-N  |
 
-**PlantCodeMap**
+**4. PlantCodeMap**
 - **Value** = CustLoc column in FS01, FS02  
 - **Description** = Plant code
 
@@ -319,3 +311,136 @@ Event Handlers (OnError)
 - [export20250622220454 FSST.xlsx](https://raw.githubusercontent.com/gennovas/FMT.ETLProcess/main/Example%20Files/export20250622220454%20FSST.xlsx)  
 - [export20250622220455 FSST.xlsx](https://raw.githubusercontent.com/gennovas/FMT.ETLProcess/main/Example%20Files/export20250622220455%20FSST.xlsx)  
 
+---
+# Column Mapping
+
+## 1. F830
+
+| Source Column Name   | Source Data Type/Size              | Destination Column Name | Destination Data Type/Size |
+|----------------------|------------------------------------|--------------------------|-----------------------------|
+| Ctrl_Num             | Unicode string [DT_WSTR]/10        | Ctrl_Num                 | nvarchar/10                 |
+| Msg_Num              | Unicode string [DT_WSTR]/10        | Msg_Num                  | nvarchar/10                 |
+| Msg_RealseDate       | Unicode string [DT_WSTR]/8         | Msg_RealseDate           | nvarchar/8                  |
+| Msg_Purpose          | Unicode string [DT_WSTR]/8         | Msg_Purpose              | nvarchar/8                  |
+| ScheduleType         | Unicode string [DT_WSTR]/10        | ScheduleType             | nvarchar/10                 |
+| StartDate            | Unicode string [DT_WSTR]/8         | StartDate                | nvarchar/8                  |
+| EndDate              | Unicode string [DT_WSTR]/8         | EndDate                  | nvarchar/8                  |
+| Note                 | Unicode string [DT_WSTR]/50        | Note                     | nvarchar/50                 |
+| **ShipToCode<sup>1</sup><sup>,3</sup>**           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
+| ShipFromCode         | Unicode string [DT_WSTR]/15        | ShipFromCode             | nvarchar/15                 |
+| Consignee            | Unicode string [DT_WSTR]/15        | Consignee                | nvarchar/15                 |
+| **PartNum<sup>2</sup>**              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
+| PO_num               | Unicode string [DT_WSTR]/40        | PO_num                   | nvarchar/40                 |
+| ReleaseStatus        | Unicode string [DT_WSTR]/10        | ReleaseStatus            | nvarchar/10                 |
+| DockCode             | Unicode string [DT_WSTR]/10        | DockCode                 | nvarchar/10                 |
+| LineFeed             | Unicode string [DT_WSTR]/10        | LineFeed                 | nvarchar/10                 |
+| ReserveLineFeed      | Unicode string [DT_WSTR]/10        | ReserveLineFeed          | nvarchar/10                 |
+| ContactName          | Unicode string [DT_WSTR]/50        | ContactName              | nvarchar/50                 |
+| ContactTelephone     | Unicode string [DT_WSTR]/15        | ContactTelephone         | nvarchar/15                 |
+| FabAuthQty           | numeric [DT_NUMERIC]               | FabAuthQty               | int                         |
+| FabAuthStartDate     | Unicode string [DT_WSTR]/8         | FabAuthStartDate         | nvarchar/8                  |
+| FabAuthEndDate       | Unicode string [DT_WSTR]/8         | FabAuthEndDate           | nvarchar/8                  |
+| MatAuthQty           | numeric [DT_NUMERIC]               | MatAuthQty               | int                         |
+| MatAuthStartDate     | Unicode string [DT_WSTR]/8         | MatAuthStartDate         | nvarchar/8                  |
+| MatAuthEndDate       | Unicode string [DT_WSTR]/8         | MatAuthEndDate           | nvarchar/8                  |
+| LastReceivedASNNum   | Unicode string [DT_WSTR]/10        | LastReceivedASNNum       | nvarchar/10                 |
+| LastShippedQty       | numeric [DT_NUMERIC]               | LastShippedQty           | int                         |
+| LastShippedDate      | Unicode string [DT_WSTR]/8         | LastShippedDate          | nvarchar/8                  |
+| CumShippedQty        | numeric [DT_NUMERIC]               | CumShippedQty            | int                         |
+| CumStartDate         | Unicode string [DT_WSTR]/8         | CumStartDate             | nvarchar/8                  |
+| CumEndDate           | Unicode string [DT_WSTR]/8         | CumEndDate               | nvarchar/8                  |
+| ForecastCumQty       | numeric [DT_NUMERIC]               | ForecastCumQty           | int                         |
+| ForecastNetQty       | numeric [DT_NUMERIC]               | ForecastNetQty           | int                         |
+| UOM                  | Unicode string [DT_WSTR]/4         | UOM                      | nvarchar/4                  |
+| ForecastStatus       | Unicode string [DT_WSTR]/4         | ForecastStatus           | nvarchar/4                  |
+| ForecastDate         | Unicode string [DT_WSTR]/8         | ForecastDate             | nvarchar/8                  |
+| FlexFCStartDate      | Unicode string [DT_WSTR]/8         | FlexFCStartDate          | nvarchar/8                  |
+| FlexFCEndDate        | Unicode string [DT_WSTR]/8         | FlexFCEndDate            | nvarchar/8                  |
+| FCDateQtyBy          | Unicode string [DT_WSTR]/4         | FCDateQtyBy              | nvarchar/4                  |
+
+**<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
+**<sup>2</sup>PartNum** คือ SyteLine Item  
+**<sup>3</sup>ShipToCode** คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew 
+
+## 2. F862
+
+| Source Column Name   | Source Data Type/Size              | Destination Column Name | Destination Data Type/Size |
+|----------------------|------------------------------------|--------------------------|-----------------------------|
+| Ctrl_Num             | Unicode string [DT_WSTR]/10        | Ctrl_Num                 | nvarchar/10                 |
+| Msg_Num              | Unicode string [DT_WSTR]/10        | Msg_Num                  | nvarchar/10                 |
+| Msg_RealseDate       | Unicode string [DT_WSTR]/8         | Msg_RealseDate           | nvarchar/8                  |
+| Msg_Purpose          | Unicode string [DT_WSTR]/8         | Msg_Purpose              | nvarchar/8                  |
+| ScheduleType         | Unicode string [DT_WSTR]/10        | ScheduleType             | nvarchar/10                 |
+| StartDate            | Unicode string [DT_WSTR]/8         | StartDate                | nvarchar/8                  |
+| EndDate              | Unicode string [DT_WSTR]/8         | EndDate                  | nvarchar/8                  |
+| Msg_Ref_Num          | Unicode string [DT_WSTR]/15        | Msg_Ref_Num              | nvarchar/15                 |
+| **ShipToCode<sup>1</sup><sup>,3</sup>**           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
+| ShipFromCode         | Unicode string [DT_WSTR]/15        | ShipFromCode             | nvarchar/15                 |
+| Consignee            | Unicode string [DT_WSTR]/15        | Consignee                | nvarchar/15                 |
+| **PartNum<sup>2</sup>**              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
+| PO_num               | Unicode string [DT_WSTR]/40        | PO_num                   | nvarchar/40                 |
+| DockCode             | Unicode string [DT_WSTR]/10        | DockCode                 | nvarchar/10                 |
+| LineFeed             | Unicode string [DT_WSTR]/10        | LineFeed                 | nvarchar/10                 |
+| ReserveLineFeed      | Unicode string [DT_WSTR]/10        | ReserveLineFeed          | nvarchar/10                 |
+| ContactName          | Unicode string [DT_WSTR]/50        | ContactName              | nvarchar/50                 |
+| ContactTelephone     | Unicode string [DT_WSTR]/15        | ContactTelephone         | nvarchar/15                 |
+| LastReceivedASNNum   | Unicode string [DT_WSTR]/10        | LastReceivedASNNum       | nvarchar/10                 |
+| LastShippedQty       | numeric [DT_NUMERIC]               | LastShippedQty           | int                         |
+| LastShippedDate      | Unicode string [DT_WSTR]/8         | LastShippedDate          | nvarchar/8                  |
+| CumShippedQty        | numeric [DT_NUMERIC]               | CumShippedQty            | int                         |
+| CumStartDate         | Unicode string [DT_WSTR]/8         | CumStartDate             | nvarchar/8                  |
+| CumEndDate           | Unicode string [DT_WSTR]/8         | CumEndDate               | nvarchar/8                  |
+| ForecastCumQty       | numeric [DT_NUMERIC]               | ForecastCumQty           | int                         |
+| ForecastNetQty       | numeric [DT_NUMERIC]               | ForecastNetQty           | int                         |
+| UOM                  | Unicode string [DT_WSTR]/4         | UOM                      | nvarchar/4                  |
+| ForecastStatus       | Unicode string [DT_WSTR]/4         | ForecastStatus           | nvarchar/4                  |
+| ForecastDate         | Unicode string [DT_WSTR]/8         | ForecastDate             | nvarchar/8                  |
+| ForecastTime         | Unicode string [DT_WSTR]/10        | ForecastTime             | nvarchar/10                 |
+
+**<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
+**<sup>2</sup>PartNum** คือ Item ใน SyteLine  
+**<sup>3</sup>ShipToCode** คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew    
+
+# 3. FS01, FS02
+
+| Source Column Name | Source Data Type/Size | Destination Column Name | Destination Data Type/Size |
+|--------------------|------------------------|--------------------------|-----------------------------|
+| F1                 | nvarchar/40           | ReqElement               | nvarchar/40 |
+| F2                 | nvarchar/15           | OrderDocNo               | nvarchar/15 |
+| F3                 | nvarchar/15           | ItemNo                   | nvarchar/15 |
+| F4                 | nvarchar/5            | SLNo                     | nvarchar/5 |
+| F5                 | nvarchar/40           | **Product<sup>1</sup>**                  | nvarchar/40 |
+| F6                 | nvarchar/15           | **CustLoc<sup>2</sup><sup>,3</sup>**                  | nvarchar/15 |
+| F7                 | nvarchar/15           | ShipFromLoc              | nvarchar/15 |
+| F8                 | nvarchar/30           | ShipToLoc                | nvarchar/30 |
+| F9                 | nvarchar/30           | GoodRecipient            | nvarchar/30 |
+| F10                | date                  | ShipDate                 | date |
+| F11                | time                  | ShipTime                 | time |
+| F12                | nvarchar/10           | ShipTZ                   | nvarchar/10 |
+| F13                | date                  | DelDate                  | date |
+| F14                | time                  | DelTime                  | time |
+| F15                | nvarchar/10           | DelTZ                    | nvarchar/10 |
+| F16                | decimal               | Quantity                 | decimal |
+| F17                | nvarchar/5            | UOM                      | nvarchar/5 |
+| F18                | nvarchar/20           | ProdChgNo                | nvarchar/20 |
+| F19                | nvarchar/20           | MyCustLocNo              | nvarchar/20 |
+| F20                | nvarchar/20           | MySTLocDesc              | nvarchar/20 |
+| F21                | nvarchar/20           | MyProductNo              | nvarchar/20 |
+| F22                | nvarchar/20           | MyProductDesc            | nvarchar/20 |
+| F23                | nvarchar/20           | MySFLocNo                | nvarchar/20 |
+| F24                | nvarchar/20           | MySFLocDesc              | nvarchar/20 |
+| F25                | nvarchar/20           | HeaderState              | nvarchar/20 |
+| F26                | nvarchar/20           | ItemState                | nvarchar/20 |
+| F27                | nvarchar/20           | SchedLineState           | nvarchar/20 |
+| F28                | nvarchar/20           | MyCustLocDesc2           | nvarchar/20 |
+| F29                | nvarchar/20           | RefeType                 | nvarchar/20 |
+| F30                | nvarchar/20           | ReferenceDoc             | nvarchar/20 |
+| F31                | nvarchar/20           | RefItemID                | nvarchar/20 |
+| F32                | nvarchar/20           | CustomerBatchNo          | nvarchar/20 |
+| F33                | nvarchar/20           | SupplierBatchNo          | nvarchar/20 |
+| F34                | nvarchar/20           | MfrPartNo                | nvarchar/20 |
+| F35                | nvarchar/20           | Mfr                      | nvarchar/20 |
+
+**<sup>1</sup>Product** คือ Value ของ User Defined Type ชื่อ ProductNoMap ใช้เพื่อกำหนด Item ใน SyteLine  
+**<sup>2</sup>CustLoc** คือ คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew  
+**<sup>3</sup>CustLoc** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
