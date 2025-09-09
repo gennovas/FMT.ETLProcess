@@ -449,6 +449,6 @@ Event Handlers (OnError)
 | F34                | nvarchar/20           | MfrPartNo                | nvarchar/20 |
 | F35                | nvarchar/20           | Mfr                      | nvarchar/20 |
 
-**<sup>1</sup>Product** คือ Value ของ User Defined Type ชื่อ ProductNoMap ใช้เพื่อกำหนด Item ใน SyteLine
-**<sup>2</sup>CustLoc** คือ คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew
+**<sup>1</sup>Product** คือ Value ของ User Defined Type ชื่อ ProductNoMap ใช้เพื่อกำหนด Item ใน SyteLine  
+**<sup>2</sup>CustLoc** คือ คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew  
 **<sup>3</sup>CustLoc** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
