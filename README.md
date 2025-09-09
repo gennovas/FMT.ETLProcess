@@ -401,3 +401,44 @@ Event Handlers (OnError)
 | ForecastDate         | Unicode string [DT_WSTR]/8         | ForecastDate             | nvarchar/8                  |
 | ForecastTime         | Unicode string [DT_WSTR]/10        | ForecastTime             | nvarchar/10                 |
 
+# 3. FS01, FS02
+
+| Source Column Name | Source Data Type/Size | Destination Column Name | Destination Data Type/Size |
+|--------------------|------------------------|--------------------------|-----------------------------|
+| ReqElement         | nvarchar/40           | ReqElement               | nvarchar/40 |
+| OrderDocNo         | nvarchar/15           | OrderDocNo               | nvarchar/15 |
+| ItemNo             | nvarchar/15           | ItemNo                   | nvarchar/15 |
+| SLNo               | nvarchar/5            | SLNo                     | nvarchar/5 |
+| Product            | nvarchar/40           | Product                  | nvarchar/40 |
+| CustLoc            | nvarchar/15           | CustLoc                  | nvarchar/15 |
+| ShipFromLoc        | nvarchar/15           | ShipFromLoc              | nvarchar/15 |
+| ShipToLoc          | nvarchar/30           | ShipToLoc                | nvarchar/30 |
+| GoodRecipient      | nvarchar/30           | GoodRecipient            | nvarchar/30 |
+| ShipDate           | date                  | ShipDate                 | date |
+| ShipTime           | time                  | ShipTime                 | time |
+| ShipTZ             | nvarchar/10           | ShipTZ                   | nvarchar/10 |
+| DelDate            | date                  | DelDate                  | date |
+| DelTime            | time                  | DelTime                  | time |
+| DelTZ              | nvarchar/10           | DelTZ                    | nvarchar/10 |
+| Quantity           | decimal               | Quantity                 | decimal |
+| UOM                | nvarchar/5            | UOM                      | nvarchar/5 |
+| ProdChgNo          | nvarchar/20           | ProdChgNo                | nvarchar/20 |
+| MyCustLocNo        | nvarchar/20           | MyCustLocNo              | nvarchar/20 |
+| MySTLocDesc        | nvarchar/20           | MySTLocDesc              | nvarchar/20 |
+| MyProductNo        | nvarchar/20           | MyProductNo              | nvarchar/20 |
+| MyProductDesc      | nvarchar/20           | MyProductDesc            | nvarchar/20 |
+| MySFLocNo          | nvarchar/20           | MySFLocNo                | nvarchar/20 |
+| MySFLocDesc        | nvarchar/20           | MySFLocDesc              | nvarchar/20 |
+| HeaderState        | nvarchar/20           | HeaderState              | nvarchar/20 |
+| ItemState          | nvarchar/20           | ItemState                | nvarchar/20 |
+| SchedLineState     | nvarchar/20           | SchedLineState           | nvarchar/20 |
+| MyCustLocDesc2     | nvarchar/20           | MyCustLocDesc2           | nvarchar/20 |
+| RefeType           | nvarchar/20           | RefeType                 | nvarchar/20 |
+| ReferenceDoc       | nvarchar/20           | ReferenceDoc             | nvarchar/20 |
+| RefItemID          | nvarchar/20           | RefItemID                | nvarchar/20 |
+| CustomerBatchNo    | nvarchar/20           | CustomerBatchNo          | nvarchar/20 |
+| SupplierBatchNo    | nvarchar/20           | SupplierBatchNo          | nvarchar/20 |
+| MfrPartNo          | nvarchar/20           | MfrPartNo                | nvarchar/20 |
+| Mfr                | nvarchar/20           | Mfr                      | nvarchar/20 |
+| FileName           | nvarchar/50           | FileName                 | nvarchar/50 |
+
