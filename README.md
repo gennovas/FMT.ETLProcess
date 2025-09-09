@@ -401,7 +401,7 @@ Event Handlers (OnError)
 | ForecastDate         | Unicode string [DT_WSTR]/8         | ForecastDate             | nvarchar/8                  |
 | ForecastTime         | Unicode string [DT_WSTR]/10        | ForecastTime             | nvarchar/10                 |
 
-**<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode
+**<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
 **<sup>2</sup>PartNum** คือ SyteLine Item
 
 # 3. FS01, FS02
