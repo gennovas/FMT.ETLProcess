@@ -378,10 +378,10 @@ Event Handlers (OnError)
 | StartDate            | Unicode string [DT_WSTR]/8         | StartDate                | nvarchar/8                  |
 | EndDate              | Unicode string [DT_WSTR]/8         | EndDate                  | nvarchar/8                  |
 | Msg_Ref_Num          | Unicode string [DT_WSTR]/15        | Msg_Ref_Num              | nvarchar/15                 |
-| ShipToCode<sup>1</sup>           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
+| **ShipToCode<sup>1</sup>**           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
 | ShipFromCode         | Unicode string [DT_WSTR]/15        | ShipFromCode             | nvarchar/15                 |
 | Consignee            | Unicode string [DT_WSTR]/15        | Consignee                | nvarchar/15                 |
-| PartNum              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
+| **PartNum<sup>2</sup>**              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
 | PO_num               | Unicode string [DT_WSTR]/40        | PO_num                   | nvarchar/40                 |
 | DockCode             | Unicode string [DT_WSTR]/10        | DockCode                 | nvarchar/10                 |
 | LineFeed             | Unicode string [DT_WSTR]/10        | LineFeed                 | nvarchar/10                 |
@@ -401,7 +401,8 @@ Event Handlers (OnError)
 | ForecastDate         | Unicode string [DT_WSTR]/8         | ForecastDate             | nvarchar/8                  |
 | ForecastTime         | Unicode string [DT_WSTR]/10        | ForecastTime             | nvarchar/10                 |
 
-<sup>1</sup> ShipToCode คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode
+**<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode
+**<sup>2</sup>PartNum** คือ SyteLine Item
 
 # 3. FS01, FS02
 
