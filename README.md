@@ -406,7 +406,7 @@ Event Handlers (OnError)
 | ForecastTime         | Unicode string [DT_WSTR]/10        | ForecastTime             | nvarchar/10                 |
 
 **<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
-**<sup>2</sup>PartNum** คือ SyteLine Item  
+**<sup>2</sup>PartNum** คือ Item ใน SyteLine  
 **<sup>3</sup>ShipToCode** คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew    
 
 # 3. FS01, FS02
@@ -417,8 +417,8 @@ Event Handlers (OnError)
 | F2                 | nvarchar/15           | OrderDocNo               | nvarchar/15 |
 | F3                 | nvarchar/15           | ItemNo                   | nvarchar/15 |
 | F4                 | nvarchar/5            | SLNo                     | nvarchar/5 |
-| F5                 | nvarchar/40           | Product                  | nvarchar/40 |
-| F6                 | nvarchar/15           | CustLoc                  | nvarchar/15 |
+| F5                 | nvarchar/40           | **Product<sup>1</sup>**                  | nvarchar/40 |
+| F6                 | nvarchar/15           | **CustLoc<sup>2</sup><sup>,3</sup>**                  | nvarchar/15 |
 | F7                 | nvarchar/15           | ShipFromLoc              | nvarchar/15 |
 | F8                 | nvarchar/30           | ShipToLoc                | nvarchar/30 |
 | F9                 | nvarchar/30           | GoodRecipient            | nvarchar/30 |
@@ -448,3 +448,7 @@ Event Handlers (OnError)
 | F33                | nvarchar/20           | SupplierBatchNo          | nvarchar/20 |
 | F34                | nvarchar/20           | MfrPartNo                | nvarchar/20 |
 | F35                | nvarchar/20           | Mfr                      | nvarchar/20 |
+
+**<sup>1</sup>Product** คือ Value ของ User Defined Type ชื่อ ProductNoMap ใช้เพื่อกำหนด Item ใน SyteLine
+**<sup>2</sup>CustLoc** คือ คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew
+**<sup>3</sup>CustLoc** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
