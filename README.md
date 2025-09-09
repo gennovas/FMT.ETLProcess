@@ -334,10 +334,10 @@ Event Handlers (OnError)
 | StartDate            | Unicode string [DT_WSTR]/8         | StartDate                | nvarchar/8                  |
 | EndDate              | Unicode string [DT_WSTR]/8         | EndDate                  | nvarchar/8                  |
 | Note                 | Unicode string [DT_WSTR]/50        | Note                     | nvarchar/50                 |
-| ShipToCode           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
+| **ShipToCode<sup>1</sup><sup>,3</sup>**           | Unicode string [DT_WSTR]/15        | ShipToCode               | nvarchar/15                 |
 | ShipFromCode         | Unicode string [DT_WSTR]/15        | ShipFromCode             | nvarchar/15                 |
 | Consignee            | Unicode string [DT_WSTR]/15        | Consignee                | nvarchar/15                 |
-| PartNum              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
+| **PartNum<sup>2</sup>**              | Unicode string [DT_WSTR]/40        | PartNum                  | nvarchar/40                 |
 | PO_num               | Unicode string [DT_WSTR]/40        | PO_num                   | nvarchar/40                 |
 | ReleaseStatus        | Unicode string [DT_WSTR]/10        | ReleaseStatus            | nvarchar/10                 |
 | DockCode             | Unicode string [DT_WSTR]/10        | DockCode                 | nvarchar/10                 |
@@ -365,6 +365,10 @@ Event Handlers (OnError)
 | FlexFCStartDate      | Unicode string [DT_WSTR]/8         | FlexFCStartDate          | nvarchar/8                  |
 | FlexFCEndDate        | Unicode string [DT_WSTR]/8         | FlexFCEndDate            | nvarchar/8                  |
 | FCDateQtyBy          | Unicode string [DT_WSTR]/4         | FCDateQtyBy              | nvarchar/4                  |
+
+**<sup>1</sup>ShipToCode** คือ Uf_sPlantShip ใน SyteLine Customer ใช้ในการ Update CustNum และ PlantCode  
+**<sup>2</sup>PartNum** คือ SyteLine Item  
+**<sup>3</sup>ShipToCode** คือ Value ของ User Defined Type ชื่อ ExportPlant ใช้เพื่อกำหนด Weekday สำหรับคำนวณ ForecastDateNew 
 
 ## 2. F862
 
